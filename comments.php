@@ -3,6 +3,9 @@
  * Find the post with the most comments on WordPress
  * Copyright 2013 - Shane Curran
  */
+ 
+ //start a session to stop the session error from wp-includes/plugin.php
+ session_start();
 
 // Load in the functions file
 require_once "inc/functions.inc.php";
