@@ -9,7 +9,7 @@ require_once "inc/functions.inc.php";
 start_html(array("comments.css"));
 
      // Include the wp-config.php file
-    require_once "wp-config.php";
+    require_once "../wp-config.php";
 
     // Eww, mysql_connect(). Remind me to replace this with PDO later
     $database = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
