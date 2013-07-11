@@ -4,8 +4,13 @@
  * Copyright 2013 - Shane Curran
  */
  
+<<<<<<< HEAD
 //start a session
 session_start();
+=======
+ //start a session to stop the session error from wp-includes/plugin.php
+ session_start();
+>>>>>>> d0ec3e7f8acf3ef34ac92dd9aa9d8882916d03bb
 
 // Load in the functions file
 require_once "inc/functions.inc.php";
