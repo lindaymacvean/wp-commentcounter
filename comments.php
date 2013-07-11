@@ -4,13 +4,8 @@
  * Copyright 2013 - Shane Curran
  */
  
-<<<<<<< HEAD
 //start a session
 session_start();
-=======
- //start a session to stop the session error from wp-includes/plugin.php
- session_start();
->>>>>>> d0ec3e7f8acf3ef34ac92dd9aa9d8882916d03bb
 
 // Load in the functions file
 require_once "inc/functions.inc.php";
@@ -24,19 +19,15 @@ start_html(array("comments.css"));
                             mysql_select_db(DB_NAME);
 
     // Select all the posts from the database
-    $posts_query = mysql_query("SELECT 'ID', 'post_title', count('comment_ID`)  FROM 'wp_posts' FULL JOIN 'wp_comments' ON 'wp_posts.ID'='wp_comments.comment_post_ID' ORDER BY 'comment_post_ID' ASC ");
+    $posts_query = mysql_query("SELECT ID, post_title, comment_count FROM wp_posts ORDER BY comment_count DESC");
 
     // Run a loop to fetch each row retrieved in the above query and store it in an array
     while ($row = mysql_fetch_assoc($posts_query)) {
-        $posts[] = $row;
-    }
-
-    // Return this awesome information to the end-user :)
-    while($comments_count['count']) {
+         // Return this awesome information to the end-user :)
 		div(array(), array("result"));
-			h("2", "The Post \"" . b($posts[2]) . "\" had a total of " . b($posts[3]) . " comments");
+			h("2", "The Post \"" . b($row['post_title']) . "\" had a total of " . b($row['comment_count']) . " comments");
 		close_div();
-	}
+    }
 		
 end_html();
 ?>
